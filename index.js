@@ -6,21 +6,21 @@ for (var i = 0; i < drumBtn; i++) {
 
     document.querySelectorAll(".drum")[i].addEventListener("click", function (){
 
-        var buttonInnerHTML = this.innerHTML;
+        var buttonInnerHTML = this.innerHTML; 
 
         checkKeys(buttonInnerHTML);
 
-
-        // this.style.color = "white";
-        // console.log(this.innerHTML);
+        buttonAnimation(buttonInnerHTML);
 
     });
 }
 
 document.addEventListener("keydown", function(event){
 
-    console.log(event);
+    
     checkKeys(event.key);
+
+    buttonAnimation(event.key);
       
 });
  
@@ -64,4 +64,11 @@ function checkKeys (key) {
 
       default:
     }
+}
+
+function buttonAnimation(currentKey) {
+
+    var activeBtn = document.querySelector("." + currentKey);
+    activeBtn.classList.add("pressed");
+
 }
